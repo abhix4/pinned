@@ -1,103 +1,76 @@
+'use client'
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  useEffect(() => {
+    // Load Twitter widget script
+    const script = document.createElement('script');
+    script.src = 'https://platform.twitter.com/widgets.js';
+    script.async = true;
+    script.charset = 'utf-8';
+    document.body.appendChild(script);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://platform.twitter.com/widgets.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
+  }, []);
+
+  return (  
+    <div className="max-w-[800px] mx-auto py-8">
+     <div className="flex justify-center items-end gap-4">
+       <h1 className="text-4xl">A man can code and design.</h1>
+      <Image 
+      src='/gorilla.gif'
+      width={50}
+      height={50}
+      alt="abhishek"
+      className="mb-1"
+      loading="eager"
+      />
+     </div>
+      <div className="w-full olumns-1 sm:columns-2  gap-4 mt-12 ">
+        <blockquote className="twitter-tweet break-inside-avoid" data-media-max-width="560">
+          <p lang="en" dir="ltr">
+            did i cook? <a href="https://t.co/gZ4Bgz82rE">pic.twitter.com/gZ4Bgz82rE</a>
+          </p>
+          &mdash; Abhishek (@abhiix4) <a href="https://twitter.com/abhiix4/status/1933554779277697296?ref_src=twsrc%5Etfw">June 13, 2025</a>
+        </blockquote>
+        
+        <blockquote className="twitter-tweet break-inside-avoid">
+          <p lang="en" dir="ltr">
+            Firebase is up, so <a href="https://t.co/w7wpE4etVn">https://t.co/w7wpE4etVn</a> is up. <a href="https://t.co/UCEMh30uvY">pic.twitter.com/UCEMh30uvY</a>
+          </p>
+          &mdash; Abhishek (@abhiix4) <a href="https://twitter.com/abhiix4/status/1933244824960053406?ref_src=twsrc%5Etfw">June 12, 2025</a>
+        </blockquote>
+        
+        <blockquote className="twitter-tweet break-inside-avoid">
+          <p lang="en" dir="ltr">
+            Just made a little extension that writes tweets for me! 😅 Needed it for my own sanity. Here&#39;s a peek at how it works! <a href="https://t.co/RZT965o3ms">pic.twitter.com/RZT965o3ms</a>
+          </p>
+          &mdash; Abhishek (@abhiix4) <a href="https://twitter.com/abhiix4/status/1933486397207535803?ref_src=twsrc%5Etfw">June 13, 2025</a>
+        </blockquote>
+        
+        <blockquote className="twitter-tweet break-inside-avoid">
+          <p lang="en" dir="ltr">
+            check this out : <a href="https://t.co/Qf5FOY38jK">https://t.co/Qf5FOY38jK</a> <a href="https://t.co/YjdW5zow9S">https://t.co/YjdW5zow9S</a> <a href="https://t.co/BWWWo5XjR8">pic.twitter.com/BWWWo5XjR8</a>
+          </p>
+          &mdash; Abhishek (@abhiix4) <a href="https://twitter.com/abhiix4/status/1932470490909778217?ref_src=twsrc%5Etfw">June 10, 2025</a>
+        </blockquote>
+        
+        <blockquote className="twitter-tweet break-inside-avoid">
+          <p lang="en" dir="ltr">
+            A minimal GitHub Issue Tracker.<br/>Helps you view issues across multiple repos in one clean dashboard.<br/>Still a WIP, but here's a quick demo 👇<a href="https://twitter.com/hashtag/buildinpublic?src=hash&amp;ref_src=twsrc%5Etfw">#buildinpublic</a> <a href="https://t.co/es1kxRouED">pic.twitter.com/es1kxRouED</a>
+          </p>
+          &mdash; Abhishek (@abhiix4) <a href="https://twitter.com/abhiix4/status/1931722329735967077?ref_src=twsrc%5Etfw">June 8, 2025</a>
+        </blockquote>
+      </div>
+
+       <h1 className="text-xl text-center mt-8">Get in touch - <a href="mailto:abhiifour@gmail.com">abhiifour@gmail.com</a></h1>
     </div>
   );
 }
