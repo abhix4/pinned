@@ -22,18 +22,18 @@ export default function Home() {
 
   return (  
     <div className="max-w-[800px] mx-auto py-8">
-     <div className="flex justify-center items-end gap-4">
-       <h1 className="text-4xl">A man can code and design.</h1>
+     <div className="flex sm:flex-row flex-col-reverse justify-center items-center gap-4">
+       <h1 className="text-2xl md:text-4xl ">A man can code and design.</h1>
       <Image 
       src='/gorilla.gif'
       width={50}
       height={50}
       alt="abhishek"
-      className="mb-1"
+      className="mb-5"
       loading="eager"
       />
      </div>
-      <div className="w-full olumns-1 sm:columns-2  gap-4 mt-12 ">
+      <div className="w-full columns-1 sm:columns-2  gap-4 mt-12 px-8 sm:px-2">
         <blockquote className="twitter-tweet break-inside-avoid" data-media-max-width="560">
           <p lang="en" dir="ltr">
             did i cook? <a href="https://t.co/gZ4Bgz82rE">pic.twitter.com/gZ4Bgz82rE</a>
@@ -70,7 +70,7 @@ export default function Home() {
         </blockquote>
       </div>
 
-       <h1 className="text-xl text-center mt-8">Get in touch - <a href="mailto:abhiifour@gmail.com">abhiifour@gmail.com</a></h1>
+       <h1 className="sm:text-xl text-lg text-center mt-8">Get in touch - <a href="mailto:abhiifour@gmail.com">abhiifour@gmail.com</a></h1>
     </div>
   );
 }
